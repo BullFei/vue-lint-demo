@@ -1,6 +1,6 @@
 ## 代码检查工具
 
-[ESLint小故事](https://segmentfault.com/a/1190000019896962)
+[ESLint 小故事](https://segmentfault.com/a/1190000019896962)
 
 [知乎-代码故事](https://zhuanlan.zhihu.com/codestory)
 
@@ -24,29 +24,27 @@ vue create vue-lint
 
 <img src="/Users/tianyufei/Library/Application Support/typora-user-images/image-20200718004841756.png" alt="image-20200718004841756" style="zoom:50%;" />
 
+## vue 脚手架创建项目时的 linter/formatter 配置选择
 
+1. ESLint with error prevention only
 
-## vue脚手架创建项目时的linter/formatter配置选择
-
-1. ESLint with error prevention only   
-
-   1. 只配置使用ESLint官网的推荐规则
+   1. 只配置使用 ESLint 官网的推荐规则
    2. 这些规则在这里 https://eslint.bootcss.com/docs/rules/
 
 2. ESLint + Airbnb config
 
-   1. 配置使用ESLint 官方推荐的规则 + Airbnb 第三方的配置
+   1. 配置使用 ESLint 官方推荐的规则 + Airbnb 第三方的配置
    2. Airbnb 的规则在这里 https://github.com/airbnb/javascript
 
 3. ESLint + Standard config（推荐使用这个，最复杂）
 
-   1. 配置使用ESLint 官方推荐的规则 + Standard config 第三方的配置
-   2. Standard config  规则在这里 https://github.com/standard/standard/blob/master/docs/README-zhcn.md
+   1. 配置使用 ESLint 官方推荐的规则 + Standard config 第三方的配置
+   2. Standard config 规则在这里 https://github.com/standard/standard/blob/master/docs/README-zhcn.md
 
 4. ESLint + Prettier
 
-   1. 配置使用ESLint 官方推荐的规则 + Prettier 第三方的配置
-   2. Prettier 主要是做风格统一，代码格式化工具。（可以在VSCode安装此插件） https://github.com/prettier/prettier
+   1. 配置使用 ESLint 官方推荐的规则 + Prettier 第三方的配置
+   2. Prettier 主要是做风格统一，代码格式化工具。（可以在 VSCode 安装此插件） https://github.com/prettier/prettier
 
 5. 选择在何时进行代码检查
 
@@ -60,37 +58,37 @@ vue create vue-lint
 
 > vue create 创建项目时可以将选择给保留下来，后续创建项目就直接使用之前做的选择。
 >
-> 保留到哪里了呢？用户主目录下的.vuerc文件中。
+> 保留到哪里了呢？用户主目录下的.vuerc 文件中。
 
 <img src="/Users/tianyufei/Library/Application Support/typora-user-images/image-20200718010915538.png" alt="image-20200718010915538" style="zoom:50%;" />
 
-## 我们clone下来的项目怎么查看是哪种配置
+## 我们 clone 下来的项目怎么查看是哪种配置
 
 配置文件
 
 1. 项目根目录下的 .eslintrc.js
 2. .eslintrc.yml
 3. eslintrc.json
-4. Package.json 中 eslintConfig配置中写的
+4. Package.json 中 eslintConfig 配置中写的
 
-## 在VSCode设置
+## 在 VSCode 设置
 
-> 配合我们选择的eslint进行VSCode编辑器设置。
+> 配合我们选择的 eslint 进行 VSCode 编辑器设置。
 
-## 为了处理一些常见的ESLint规则的问题，我们可以做VSCode的格式化
+## 为了处理一些常见的 ESLint 规则的问题，我们可以做 VSCode 的格式化
 
-1. 可以对VSCode自带的一些配置做设置  首选项 -> 设置 -> 搜索format -> 启动 Format On Save
+1. 可以对 VSCode 自带的一些配置做设置 首选项 -> 设置 -> 搜索 format -> 启动 Format On Save
 
-2. 安装一款VSCode的插件，插件名字叫做Prettier - Code formatter
+2. 安装一款 VSCode 的插件，插件名字叫做 Prettier - Code formatter
 
-   1. 启用VSCode保存代码时自动格式化，右键【格式化文档】
-   2. 在项目中ESLint的配置让我们不使用分号，然后prettier这个格式化工具自动使用了分号，如何处理一下呢？
+   1. 启用 VSCode 保存代码时自动格式化，右键【格式化文档】
+   2. 在项目中 ESLint 的配置让我们不使用分号，然后 prettier 这个格式化工具自动使用了分号，如何处理一下呢？
 
-   > ##### 在项目中配置prettier的配置文件
+   > ##### 在项目中配置 prettier 的配置文件
    >
-   > https://prettier.io/      -> configuration file
+   > https://prettier.io/ -> configuration file
    >
-   > <1> 在package.json中配置prettier属性
+   > <1> 在 package.json 中配置 prettier 属性
    >
    > <2> .prettierrc 文件
    >
@@ -112,17 +110,17 @@ module.exports = {
 }
 ```
 
- 4. ESLint的规则和prettier格式化的格式有不同的时候，应该听谁的？
+4.  ESLint 的规则和 prettier 格式化的格式有不同的时候，应该听谁的？
 
-    > 听ESLint的。
+    > 听 ESLint 的。
 
-	5. 修改prettier默认的格式的时候，发现找不到相应的配置或者根本没有相应的配置时，如何办？
+    5.  修改 prettier 默认的格式的时候，发现找不到相应的配置或者根本没有相应的配置时，如何办？
 
-    > 凉拌，针对这个文件就不要使用prettier的格式化操作即可。
+    > 凉拌，针对这个文件就不要使用 prettier 的格式化操作即可。
 
-	6. 我是团队的老大，目前这个项目使用了Standard设置ESLinit规则，发现这里面有些我不爽的地方，能否修改呢？
+    6.  我是团队的老大，目前这个项目使用了 Standard 设置 ESLinit 规则，发现这里面有些我不爽的地方，能否修改呢？
 
-    > 可以修改，只需要在ESLinit的配置中配置响应的rule即可。注意修改了ESLint规则之后，需要重启。
+    > 可以修改，只需要在 ESLinit 的配置中配置响应的 rule 即可。注意修改了 ESLint 规则之后，需要重启。
 
     .eslintrc.js
 
@@ -169,14 +167,14 @@ module.exports = {
       singleQuote: true,
       //去除拖尾逗号
       trailingComma: 'none'
-    };
+    }
     ```
 
-	7. 在代码中有时一些语法触发了某个规则，但是这个语法必须要这样的时候，如何办呢？
+    7.  在代码中有时一些语法触发了某个规则，但是这个语法必须要这样的时候，如何办呢？
 
     > eslint 判断必须使用 ===，但是我希望现在使用==号
     >
-    > 解决：可以使用ESLint特有的注释对这小块代码做一个临时的规则开放。
+    > 解决：可以使用 ESLint 特有的注释对这小块代码做一个临时的规则开放。
 
     ```javascript
     /* eslint-disable*/
@@ -188,4 +186,3 @@ module.exports = {
     ```
 
     > 更多配置： https://eslint.bootcss.com/docs/user-guide/configuring
-
